@@ -1,0 +1,5 @@
+NOT x -> j
+NOT y -> l
+j AND l -> z
+123 -> x
+456 -> y
