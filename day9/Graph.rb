@@ -63,14 +63,21 @@ class Graph
     return neighbors
   end
 
+  def process_all_roads_starting_all_vertices
+    @vertices.each do |v|
+      go_through(v,[],0)      
+    end
+    pp "min: #{@weights.min}"
+    pp "max: #{@weights.max}"
+  end
+
   def go_through(initial, visited, weight)
-    pp "-------------------------"
     autovisit = Array.new(visited)
     autovisit << initial
 #    pp autovisit
 #    pp vertices
     if (autovisit.size == @vertices.size )
-      pp "Encontro uno"
+#      pp "Encontro uno"
       roads << autovisit
       weights << weight
 #      pp autovisit
@@ -80,11 +87,11 @@ class Graph
       temp = get_neighborhs(initial,autovisit)
       temp.each do |to_visit|
         if(!autovisit.detect { |av| av == to_visit })
-          pp "Visitar a #{to_visit.name}"
-          pp "With this values #{autovisit}"
           go_through(to_visit, autovisit, (get_weight(initial,to_visit).to_i+weight.to_i))
         end
       end
     end
   end
 end
+
+
