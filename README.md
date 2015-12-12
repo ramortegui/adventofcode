@@ -1,2 +1,5 @@
 # adventofcode
-http://adventofcode.com - perl puzzles
+http://adventofcode.com - code puzzles
+
+1 -8 developed in perl
+9 .. developed in ruby
