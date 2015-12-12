@@ -43,6 +43,7 @@ class Password
   def get_straigh(value)
     init = 'abc'
     (0..24).each do |ind|
+      return false if(init.length > 3)
       return true if value.include?(init)
       new = ""
       init.split("").each do |char|
