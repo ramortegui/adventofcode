@@ -65,12 +65,15 @@ class Kitchen
     durability = 0
     flavor = 0
     texture = 0 
+    calories = 0;
     @ingredients.each_with_index do |ing,i|
       capacity += ing.capacity * arr[i]
       durability += ing.durability * arr[i]
       flavor += ing.flavor * arr[i]
       texture += ing.texture * arr[i] 
+      calories += ing.calories * arr[i] 
     end
+    return 0 if calories != 500;
     return 0 if capacity <= 0 || durability <=0 || flavor <=0 || texture <= 0
     return capacity * durability * flavor * texture
   end
